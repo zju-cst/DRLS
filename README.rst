@@ -2,7 +2,7 @@
 DRLS
 ===============================
 
-zju-cst drls system
+Zhejiang University software college dormitory random lottery system
 
 
 Quickstart
