@@ -3,15 +3,8 @@ import unittest
 from drls.rng import RandomGenerator
 
 
-class TestRng(unittest.TestCase):
-
-    def test_GeneateRandom(self):
-        r1 = RandomGenerator(1,10,1)
-        ran1 = r1.GeneateRandom()
-        r2 = RandomGenerator(1,10,1)
-        ran2 = r2.GeneateRandom()
-        self.assertEqual(ran1[0],ran2[0])
-
 if __name__ == "__main__":
-    t = TestRng()
-    ran = t.test_GeneateRandom()
+    dict = {'21751117': 1.0,'21751114': 1.0,'21751115': 1.0, '21751110': 1.0,'21751111': 1.0, '21751464': 1.0, '21751465': 1.0, '21751462': 1.0, '21751463': 1.0}
+    res = RandomGenerator(1,9,5,dict)
+    studs = res.GenerateResult()
+    print studs
