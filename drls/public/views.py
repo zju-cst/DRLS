@@ -8,8 +8,13 @@ from drls.public.forms import LoginForm
 from drls.user.forms import RegisterForm
 from drls.user.models import User
 from drls.utils import flash_errors
+from drls.utils import load_md
+
+import os
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
+
+base_path = os.path.dirname(__file__)
 
 
 @login_manager.user_loader
@@ -60,7 +65,7 @@ def register():
 def about():
     """About page."""
     form = LoginForm(request.form)
-    return render_template('public/about.html', form=form)
+    return render_template('public/about.html', form=form, mdcontent=load_md(mdfile_path=base_path+"/../markdown/algorithm.md"))
 
 @blueprint.route('/import/')
 def importt():

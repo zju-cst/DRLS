@@ -16,6 +16,7 @@
 .logo__link {
   display: flex;
   flex-direction: row;
+  text-decoration: none;
 }
 
 .logo__title {
