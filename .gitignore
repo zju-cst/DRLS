@@ -55,3 +55,7 @@ drls/webpack/manifest.json
 # idea
 
 .idea
+
+# mac cache file
+.DS_Store
+

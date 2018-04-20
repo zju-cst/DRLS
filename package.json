@@ -14,7 +14,7 @@
     "url": "git+https://github.com/zju-cst/DRLS.git"
   },
   "author": "drls authors",
-  "license": "BSD-3-Clause",
+  "license": "MPL-2.0",
   "engines": {
     "node": ">=4"
   },

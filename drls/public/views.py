@@ -61,3 +61,13 @@ def about():
     """About page."""
     form = LoginForm(request.form)
     return render_template('public/about.html', form=form)
+
+
+@blueprint.route('/import/')
+def importt():
+    """Import page."""
+    form = LoginForm(request.form)
+    return render_template('public/import.html', form=form)
+
+
+
