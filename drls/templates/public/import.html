@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+        <noscript>
+          <div class="noscript">
+            <h2>ZJU-CST/DRLS 需要 JavaScript</h2>
+            <p>
+              <a class="link" href="https://github.com/mozilla/send/blob/master/docs/faq.md#why-does-firefox-send-require-javascript">
+              为什么 ZJU-CST/DRLS 需要 JavaScript？
+              </a>
+            </p>
+            <p>请启用 JavaScript 并重试。</p>
+          </div>
+        </noscript>
+
+  <div id="page-one" class="">
+    <div class="title">ZJU-CST-宿舍随机分配系统</div>
+    <div class="description">
+      <div>通过给定随机种子，能够生成可追溯的随机分配数据。</div>
+      <a
+        href="https://testpilot.firefox.com/experiments/send"
+        class="link">
+        详细了解算法原理
+      </a>
+    </div>
+    <div class="uploadArea">
+      <img
+        src="{{ asset_url_for('img/upload.svg') }}"
+        title="上传"/>
+      <div class="uploadArea__msg">
+        把Excel文件拖到到此处开始上传
+      </div>
+      <span class="uploadArea__sizeMsg">
+        为保证运行稳定，建议文件大小不超过 1GB
+      </span>
+      <input id="file-upload"
+        class="inputFile"
+        type="file"
+        name="fileUploaded"
+        />
+      <label for="file-upload"
+        class="btn btn--file"
+        title="选择一个要上传的文件">
+        选择名单Excel文件
+      </label>
+    </div>
+
+  </div>
+{% endblock %}

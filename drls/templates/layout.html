@@ -1,67 +1,71 @@
-
 <!doctype html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% block page_title %}
-  
-    DRLS
-  
-    {% endblock %}
-  </title>
-  <meta name="description" content="{% block meta_description %}{% endblock %}">
-  <meta name="author" content="{% block meta_author %}{% endblock %}">
+    <meta property="og:title" content="Firefox Send"/>
+    <meta name="twitter:title" content="Firefox Send"/>
+    <meta name="description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever."/>
+    <meta property="og:description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever."/>
+    <meta name="twitter:description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever."/>
+    <meta name="twitter:card" content="summary"/>
+    <meta property="og:image" content="https://send.firefox.com/send-fb.19274ff0.jpg"/>
+    <meta name="twitter:image" content="https://send.firefox.com/send-twitter.7d5e4200.jpg"/>
+    <meta property="og:url" content="https://send.firefox.com"/>
 
-  <!-- Mobile viewport optimized: h5bp.com/viewport -->
-  <meta name="viewport" content="width=device-width">
+    <title>{% block page_title %}DRLS{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta name="author" content="{% block meta_author %}{% endblock %}">
 
-  {{ stylesheet_tag('main_css') | safe }}
+    {#    <link rel="stylesheet" type="text/css" href="/style.13e19eba.css" />#}
+    {{ stylesheet_tag('main_css') | safe }}
 
-  {% block css %}{% endblock %}
+    {% block css %}{% endblock %}
 
+    <!-- generic favicons -->
+    <link rel="icon" href="/favicon-32.4efdbe5a.png" sizes="32x32">
+    <link rel="icon" href="/favicon-96.a2ce7c6e.png" sizes="96x96">
+    <link rel="icon" href="/favicon-128.58447464.png" sizes="128x128">
+    <link rel="icon" href="/favicon-228.069d14fe.png" sizes="228x228">
+
+    <!-- Android -->
+    <link rel="shortcut icon" href="/favicon-196.55cef95d.png" sizes="196x196">
+
+    <!-- iOS -->
+    <link rel="apple-touch-icon" href="/favicon-120.a48a3fc0.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/favicon-152.10d8b941.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/favicon-180.373787f8.png" sizes="180x180">
+
+    <!-- Windows 8 IE 10-->
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="/favicon-144.909cb064.png">
+
+    <!-- Windows 8.1 + IE11 and above -->
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+
+
+
+    <script defer src="/jsconfig.js"></script>
+    <script defer src="/runtime.44a28e7e.js"></script>
+    <script defer src="/vendor.ec5b5b1d.js"></script>
+    <script defer src="/public/locales/zh-CN/send.7b40f48c.js"></script>
+    <script defer src="/cryptofill.1315ac9e.js"></script>
+    <script defer src="/app.b7afd016.js"></script>
 </head>
-<body class="{% block body_class %}{% endblock %}">
-{% block body %}
-{% with form=form  %}
-{% include "nav.html" %}
-{% endwith %}
+<body class="{% block body_class %} {% endblock %}">
 
-<header>{% block header %}{% endblock %}</header>
-<div class="{% block content_class %}container{% endblock content_class %}">
 
-  <div role="main">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    <div class="row">
-      <div class="col-md-12">
-        {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">
-          <a class="close" title="Close" href="#" data-dismiss="alert">&times;</a>
-         {{message}}
-        </div><!-- end .alert -->
-        {% endfor %}
-      </div><!-- end col-md -->
-    </div><!-- end row -->
-        {% endif %}
-    {% endwith %}
-
-    {% block content %}{% endblock %}
-  </div>
-
-</div><!-- end container -->
-
+{% include "header.html" %}
+<main class="main">
+    {% block content %} {% endblock %}
+</main>
 {% include "footer.html" %}
 
 <!-- JavaScript at the bottom for fast page loading -->
 {{ javascript_tag('main_js') | safe }}
 {% block js %}{% endblock %}
 <!-- end scripts -->
-{% endblock %}
 </body>
-</html>
+
 
