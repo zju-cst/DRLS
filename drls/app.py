@@ -5,6 +5,7 @@ from flask import Flask, render_template
 from drls import commands, public, user
 from drls.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, webpack
 from drls.settings import ProdConfig
+from drls.utils import JSONR
 
 
 def create_app(config_object=ProdConfig):

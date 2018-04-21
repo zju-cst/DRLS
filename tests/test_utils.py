@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from drls.rng import RandomGenerator
 from drls.utils import read_excel, cal_range
+from drls.utils import app_dir
 
 
 #主程序测试
 if __name__ == "__main__":
     #爬取所有数据并去重
-    dict = read_excel("/Users/DeepSea/Documents/workspace/workspace_py/DRLS/test.xls")
+    dict = read_excel(app_dir() + "/data/test.xls")
     #计算权重合
     sum = cal_range(dict)
     #初始化随机类

@@ -1,14 +1,41 @@
-
 {% extends "layout.html" %}
 {% block content %}
-<!-- Main jumbotron for a primary marketing message or call to action -->
+  <div id="page-one" class="">
+    <div class="title">宿舍随机抽签系统</div>
+    <div class="description">
+      <div>通过给定随机种子，能够生成可追溯的随机分配数据</div>
+      <a href="/about" class="link">详细了解算法原理</a>
+    </div>
 
-  <h1>Welcome to DRLS</h1>
-    <p>浙江大学软件学院宿舍随机分配系统<br/>
-        本系统基于Flask开发，以MPL-2.0开源协议发布，样式基于<a href=https://send.firefox.com/">Mozilla’s send.</a><br/>
-        <a href="https://github.com/zju-cst/DRLS">了解更多，请访问github</a></p>
-  <p><a href="/import" class="btn btn-primary btn-large">开始</a></p>
+    {% if not (lock and data_exist) %}
+    <div class="uploadArea">
+       <form id="upload-form" enctype="multipart/form-data" method="post" name="upload-form">
+        <div class="uploadArea__msg">请输入随机种子</div>
+        <label for="random-seed" class="" title="请输入随机种子">请输入本次初始随机种子</label>
+        <input id="random-seed" class="ramdomSeed" type="text" name="randomSeed"/>
 
+        <label for="random-num" class="" title="请输入随机目标人数">请输入随机目标人数</label>
+        <input id="random-num" class="ramdomNum" type="text" name="randomNum"/>
 
+        {% if lock %}
+        <label for="passwd" class="" title="请输入上传密码">请输入上传密码</label>
+        <input id="passwd" class="passwd" type="text" name="passwd"/>
+        {% endif %}
+
+        <div class="uploadArea__msg">请选择相应格式Excel文件上传</div>
+        <input id="file-upload" class="inputFile" type="file" name="fileUploaded" />
+        <label for="file-upload" class="btn btn--file" title="选择一个要上传的文件"> 选择名单Excel文件 </label>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+       </form>
+    </div>
+    {% endif %}
+
+    {% if data_exist %}
+    <div class="previous-result">
+        <a href="/random/">查看上次random结果{{ lock }}</a>
+    </div>
+    {% endif %}
+
+  </div>
 {% endblock %}
 

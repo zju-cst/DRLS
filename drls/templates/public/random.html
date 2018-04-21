@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div id="page-one" class="">
+    <div class="title">ZJU-CST-宿舍随机分配系统</div>
+    <div class="description">
+      <div>通过给定随机种子，能够生成可追溯的随机分配数据。</div>
+      <a href="/about" class="link">详细了解算法原理</a>
+    </div>
+    <div class="random-effect" id="random-box">
+        <form id="rand-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        </form>
+        <div class="loading"></div>
+        <div class="random"><span class="random-span"></span></div>
+        <table id="lucky-stu-table">
+            <tr><th>序号</th><th>学号</th></tr>
+        </table>
+        <table id="all-stu-table">
+            <tr><th>序号</th><th>学号</th><th>权重</th></tr>
+        </table>
+    </div>
+    <div class="random-result">
+        <div class="result"></div>
+    </div>
+  </div>
+{% endblock %}
