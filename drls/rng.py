@@ -16,7 +16,7 @@ class RandomGenerator:
         seed = self.initSeed
         while (count < self.num):
             ran = self.GeneateRandom(seed)
-            print ran
+            #print ran
             stud = self.GetStudetByRandom(ran)
             bol = self.QueryResult(stud)
             if bol :
