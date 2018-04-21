@@ -39,3 +39,6 @@ Flask-DebugToolbar==0.10.1
 # Markdown
 
 markdown2==2.3.5
+
+#Excel
+xlrd==1.1.0

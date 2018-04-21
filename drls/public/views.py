@@ -68,6 +68,7 @@ def about():
 
     return render_template('public/about.html', form=form)
 
+
 @blueprint.route('/import/')
 def importt():
     """Import page."""
