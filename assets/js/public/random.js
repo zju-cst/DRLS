@@ -14,16 +14,16 @@ if (randomBox) {
     // because allstus is a object, we need a indicator to
     // get the index
     const allStudents = [];
-    $.each(data.data.allstus, (index,stu) => {
+    $.each(data.data.allstus, (index, stu) => {
       allStudents.push([index, stu.key, stu.value]);
-      index += 1
+      index += 1;
       $('#all-stu-table').append(`<tr><td> ${index} </td><td>${stu.key}</htd><td>${stu.value}</td></tr>`);
     });
     // lucky students
     // needs animation effects
     const luckyStudents = [];
-    $.each(data.data.studs, (idx, weight) => {
-      luckyStudents.push([idx, weight]);
+    $.each(data.data.studs, (idx, ele) => {
+      luckyStudents.push([idx, ele]);
     });
 
     let c1 = 0;
@@ -40,11 +40,11 @@ if (randomBox) {
         $('#lucky-stu-table').append(`<tr><td> ${c1} </td><td>${ele[1]}</td></tr>`);
         if (luckyStudents.length === 0) {
           clearInterval(effectIntervalId);
-          randomSpan.html('');
+          randomSpan.val('');
         }
       }
       c2 += 1;
-      randomSpan.html(allStudents[c2 % allStudents.length][1]);
+      randomSpan.val(allStudents[c2 % allStudents.length][1]);
     }, 50);
   }).fail((err) => {
     console.warn(err);

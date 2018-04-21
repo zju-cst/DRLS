@@ -8,14 +8,25 @@
     </div>
     <div class="random-effect" id="random-box">
         <form id="rand-form">
+            <div class="form-group">
+                <label for="random-seed-input">Random Seed</label>
+                <input class="random-seed" id="random-seed-input" disabled="disabled" value="{{ random_seed }}">
+            </div>
+            <div class="form-group">
+                <label for="random-num-input">Select Target Num</label>
+                <input class="random-num" id="random-num-input" disabled="disabled" value="{{ random_num }}">
+            </div>
+            <div class="form-group">
+                <label for="random-input">Random</label>
+                <input class="random-span" id="random-input" disabled="disabled" value="">
+            </div>
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
         </form>
-        <div class="loading"></div>
-        <div class="random"><span class="random-span"></span></div>
-        <table id="lucky-stu-table">
+
+        <table class="table" id="lucky-stu-table">
             <tr><th>序号</th><th>学号</th></tr>
         </table>
-        <table id="all-stu-table">
+        <table class="table" id="all-stu-table">
             <tr><th>序号</th><th>学号</th><th>权重</th></tr>
         </table>
     </div>
