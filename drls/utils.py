@@ -23,7 +23,8 @@ def read_excel(path):
     for i in range(nrow):
         key = table.cell_value(i,0)
         value = table.cell_value(i,1)
-        student[key] = value
+        if dict_filter(key):
+            student[key] = value
     return student
 
 def cal_range(students):
@@ -57,3 +58,6 @@ def file_exists(path,isfile=True):
        else:
            return False
    return False
+
+def dict_filter(item):
+    return (str(item).startswith('21751') and len(str(item)) == 8)

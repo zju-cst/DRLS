@@ -1,26 +1,55 @@
 {% extends "layout.html" %}
 {% block content %}
-  <div id="page-one" class="">
-    <div class="title">ZJU-CST-宿舍随机分配系统</div>
+    <div class="row">
+    <div class="title">宿舍随机抽签系统</div>
     <div class="description">
-      <div>通过给定随机种子，能够生成可追溯的随机分配数据。</div>
+      <div>给定随机种子，生成可追溯随机数据</div>
       <a href="/about" class="link">详细了解算法原理</a>
     </div>
-    <div class="random-effect" id="random-box">
-        <form id="rand-form">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-        </form>
-        <div class="loading"></div>
-        <div class="random"><span class="random-span"></span></div>
-        <table id="lucky-stu-table">
-            <tr><th>序号</th><th>学号</th></tr>
-        </table>
-        <table id="all-stu-table">
-            <tr><th>序号</th><th>学号</th><th>权重</th></tr>
-        </table>
     </div>
-    <div class="random-result">
-        <div class="result"></div>
+    <div class="row">
+        <div class="random-effect col-md-6 col-xs-12" id="random-box">
+            <div class="uploadArea">
+            <form id="rand-form">
+                <div class="form-row">
+                <div class="form-group">
+                    <label for="random-seed-input">随机种子</label>
+                    <input class="random-seed" id="random-seed-input" readonly value="{{ random_seed }}">
+                </div>
+                <div class="form-group">
+                    <label for="random-num-input"> 目标人数</label>
+                    <input class="random-num" id="random-num-input" readonly value="{{ random_num }}">
+                </div>
+                <div class="form-group">
+                    <label for="random-input">随机过程</label>
+                    <input class="random-span" id="random-input" readonly value="">
+                </div>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                </div>
+            </form>
+
+            </div>
+        </div>
+        <main class="random-result col-md-6">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr><th>序号</th><th>学号</th></tr>
+                </thead>
+                <tbody id="lucky-stu-table"></tbody>
+            </table>
+        </main>
     </div>
-  </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+        <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr><th>序号</th><th>学号</th><th>权重</th></tr>
+                </thead>
+                <tbody id="all-stu-table"></tbody>
+            </table>
+        </div>
+    </div>
+
+
 {% endblock %}

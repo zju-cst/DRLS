@@ -5,17 +5,33 @@ DRLS
 Zhejiang University software college dormitory random lottery system
 
 
-Quickstart
+开始使用
+---------
+
+项目目录 ``drls/data``，将作为数据存储目录存在，在其中将会生成如下文件:
+
+1. ``lock.txt`` 密码文件，该文件用于控制单次上传excel，并简单验证权限
+2. ``num.txt`` 记录需要抽签的目标人数
+3. ``random_seed.txt`` 记录当前抽签的随机种子
+4. ``studata.xls`` 存储用户信息，仅仅支持xls格式文件，该文件应该只有两个字段，字段1为学号，字段2为抽签权重
+
+请注意，代码执行逻辑为:
+
+如果``lock.txt``存在，则只能够上传一次xls文件，并且需要输入密码，今后访问本程序则只能够验证结果。
+    - 如果``lock.txt``存在,``studata.xls``不存在，则允许第一次上传，并要求输入密码
+    - 如果``lock.txt``存在,``studata.xls``也存在，不再允许上传，只能够验证上一次随机抽取结果
+如果``lock.txt``不存在，则可以多次上传xls数据，并覆盖上一次数据
+
+其他文件如``num.txt``、``random_seed.txt``、``studata.xls``则会自动创建
+
+开始开发
 ----------
 
-First, set your app's secret key as an environment variable. For example,
-add the following to ``.bashrc`` or ``.bash_profile``.
 
 .. code-block:: bash
 
-    export DRLS_SECRET='something-really-secret'
 
-Run the following commands to bootstrap your environment ::
+运行如下的命令将帮助你快速开始 ::
 
     git clone https://github.com/zju-cst/DRLS
     cd drls
@@ -23,34 +39,24 @@ Run the following commands to bootstrap your environment ::
     npm install
     npm start  # run the webpack dev server and flask server using concurrently
 
-You will see a pretty welcome screen.
+你就可以看到程序在 http://localhost:5000 运行.
 
-In general, before running shell commands, set the ``FLASK_APP`` and
-``FLASK_DEBUG`` environment variables ::
+如果你不用npm 进行开发的话，那么请在开发之前，在cli中运行如下命令,以设置开发环境变量::
 
     export FLASK_APP=autoapp.py
     export FLASK_DEBUG=1
 
-Once you have installed your DBMS, run the following to create your app's
-database tables and perform the initial migration ::
 
-    flask db init
-    flask db migrate
-    flask db upgrade
-    npm start
-
-
-Deployment
+部署
 ----------
 
-To deploy::
+部署应用::
 
     export FLASK_DEBUG=0
     npm run build   # build assets with webpack
     flask run       # start the flask server
 
-In your production environment, make sure the ``FLASK_DEBUG`` environment
-variable is unset or is set to ``0``, so that ``ProdConfig`` is used.
+在你的生产环境中，请确保 ``FLASK_DEBUG`` 环境变量已经被设置为``0``,只有这样生产配置``ProdConfig`` 才会被使用.
 
 
 Shell
@@ -69,23 +75,6 @@ Running Tests
 To run all tests, run ::
 
     flask test
-
-
-Migrations
-----------
-
-Whenever a database migration needs to be made. Run the following commands ::
-
-    flask db migrate
-
-This will generate a new migration script. Then run ::
-
-    flask db upgrade
-
-To apply the migration.
-
-For a full migration command reference, run ``flask db --help``.
-
 
 Asset Management
 ----------------

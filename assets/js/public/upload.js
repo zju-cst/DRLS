@@ -12,9 +12,14 @@ $('#file-upload').on('change', () => {
     if (data && data.code === 0) {
       window.location.replace('/random/');
     } else {
-      console.log(data);
+      $('.warn-code').html(data.code);
+      $('.warn-msg').html(data.msg);
+      $('#warn-modal').modal();
     }
   }).fail((err) => {
-    console.warn(err);
+    $('.warn-code').html(9999);
+    const msg = err || 'internal system error';
+    $('.warn-msg').html(msg);
+    $('#warn-modal').modal();
   });
 });

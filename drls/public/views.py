@@ -97,7 +97,32 @@ def upload():
 def random():
     """random page."""
     if file_exists(os.path.join(app.config['UPLOAD_FOLDER'],app.config['STUDATA_FILE_NAME'])):
-       return render_template('public/random.html')
+        seed_file_path = os.path.join(app.config['UPLOAD_FOLDER'],app.config['RANDOMSEED_FILE_NAME'])
+        num_file_path = os.path.join(app.config['UPLOAD_FOLDER'],app.config['RANDOMNUM_FILE_NAME'])
+
+        random_num = 0
+        random_seed =0
+        if file_exists(seed_file_path):
+            seed_file = open(seed_file_path)
+            try:
+                seed = seed_file.readline().strip()
+                random_seed = int(seed)
+            except ValueError:
+                return render_template('public/random.html',random_seed=0, random_num=0)
+            finally:
+                seed_file.close()
+
+        if file_exists(num_file_path):
+            num_file = open(num_file_path)
+            try:
+                num = num_file.readline().strip()
+                random_num = int(num)
+            except ValueError:
+                return render_template('public/random.html',random_seed=random_seed, random_num=0)
+            finally:
+                num_file.close()
+        return render_template('public/random.html',random_seed=random_seed, random_num=random_num)
+
     return redirect(url_for('public.home'))
 
 
