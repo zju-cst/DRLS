@@ -59,3 +59,6 @@ drls/webpack/manifest.json
 # mac cache file
 .DS_Store
 npm-debug.log
+
+# test data
+studata.xls

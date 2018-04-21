@@ -16,7 +16,6 @@
 .logo__link {
   display: flex;
   flex-direction: row;
-  text-decoration: none;
 }
 
 .logo__title {
@@ -53,7 +52,7 @@
 
 .feedback {
   background-color: var(--primaryControlBGColor);
-  background-image: url('/assets/feedback.svg');
+  background-image: url('~!file-loader!../img/feedback.svg');
   background-position: 2px 4px;
   background-repeat: no-repeat;
   background-size: 18px;
