@@ -2,29 +2,29 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Zhejiang University Dormitory Random Lottery System"/>
-
     <title>{% block page_title %}DRLS{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}{% endblock %}">
-    <meta name="author" content="{% block meta_author %}{% endblock %}">
-    {#    <link rel="stylesheet" type="text/css" href="/style.13e19eba.css" />#}
     {{ stylesheet_tag('main_css') | safe }}
     {% block css %}{% endblock %}
-
-{#    <script defer src="/jsconfig.js"></script>#}
-{#    <script defer src="/runtime.44a28e7e.js"></script>#}
-{#    <script defer src="/vendor.ec5b5b1d.js"></script>#}
-{#    <script defer src="/public/locales/zh-CN/send.7b40f48c.js"></script>#}
-{#    <script defer src="/cryptofill.1315ac9e.js"></script>#}
-{#    <script defer src="/app.b7afd016.js"></script>#}
-
 </head>
 <body class="{% block body_class %} {% endblock %}" >
 {% include "header.html" %}
 <main class="container">
     {% block content %} {% endblock %}
 </main>
+
+<!-- Small modal -->
+<div id="warn-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="warning">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="alert alert-danger" style="margin-bottom: 0">
+            <p><strong class="warn-code"></strong> : <span class="warn-msg"></span></p>
+        </div>
+    </div>
+  </div>
+</div>
 
 {% include "footer.html" %}
 <!-- JavaScript at the bottom for fast page loading -->

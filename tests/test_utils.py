@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from drls.rng import RandomGenerator
 from drls.utils import read_excel, cal_range
-from drls.utils import app_dir
+from drls.utils import app_dir,dict_filter
 
 
 #主程序测试
@@ -17,3 +17,4 @@ if __name__ == "__main__":
     studs = res.GenerateResult()
     #输出
     print studs
+
