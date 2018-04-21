@@ -3,12 +3,7 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 
 from flask import current_app as app
-from drls.utils import load_md
-from drls.utils import app_dir
-from drls.utils import allowed_file
-from drls.utils import JSONR
-from drls.utils import file_exists
-from drls.utils import read_excel
+from drls.utils import read_excel, cal_range, file_exists,allowed_file,app_dir,load_md,JSONR
 from drls.rng import RandomGenerator
 from werkzeug.utils import secure_filename
 import hashlib
@@ -140,7 +135,7 @@ def rand():
     if file_exists(xls_file):
        # rand
        dicts = read_excel(xls_file)
-       res = RandomGenerator(random_seed, len(dicts), random_num, dicts)
+       res = RandomGenerator(random_seed, cal_range(dicts), random_num, dicts)
        studs = res.GenerateResult()
        data = {'allstus': dicts,'studs':studs }
        return JSONR(ERRCODE.SUCCESS,'success',data)
