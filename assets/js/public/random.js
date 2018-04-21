@@ -15,10 +15,10 @@ if (randomBox) {
     // get the index
     const allStudents = [];
     let i0 = 0;
-    $.each(data.data.allstus, (stuid, weight) => {
-      i0 += 1;
-      allStudents.push([i0, stuid, weight]);
-      $('#all-stu-table').append(`<tr><td> ${i0} </td><td>${stuid}</htd><td>${weight}</td></tr>`);
+    $.each(data.data.allstus, (index,stu) => {
+      allStudents.push([index, stu.key, stu.value]);
+      index += 1
+      $('#all-stu-table').append(`<tr><td> ${index} </td><td>${stu.key}</htd><td>${stu.value}</td></tr>`);
     });
     // lucky students
     // needs animation effects
