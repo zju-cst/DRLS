@@ -137,7 +137,11 @@ def rand():
        dicts = read_excel(xls_file)
        res = RandomGenerator(random_seed, cal_range(dicts), random_num, dicts)
        studs = res.GenerateResult()
-       data = {'allstus': dicts,'studs':studs }
+       res = []
+       for key in dicts:
+           res.append({"key":key,"value":dicts[key]})
+       app.logger.info(res)
+       data = {'allstus': res,'studs':studs }
        return JSONR(ERRCODE.SUCCESS,'success',data)
     return JSONR(ERRCODE.UNKNOW,'failed')
 
