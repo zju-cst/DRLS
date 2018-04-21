@@ -14,7 +14,6 @@ if (randomBox) {
     // because allstus is a object, we need a indicator to
     // get the index
     const allStudents = [];
-    let i0 = 0;
     $.each(data.data.allstus, (index,stu) => {
       allStudents.push([index, stu.key, stu.value]);
       index += 1
