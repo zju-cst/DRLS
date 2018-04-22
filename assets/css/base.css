@@ -36,6 +36,11 @@ button {
   margin: 0;
 }
 
+input{
+  border: 1px solid #ccc;
+  padding: 3px;
+}
+
 a {
   text-decoration: none;
 }
@@ -95,7 +100,7 @@ a:hover {
 
 .input {
   flex: 2 0 auto;
-  border: 1px solid var(--primaryControlBGColor);
+  border: 1px solid #ccc;
   border-radius: 6px 0 0 6px;
   font-size: 20px;
   color: var(--inputTextColor);

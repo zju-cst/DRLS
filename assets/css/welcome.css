@@ -9,7 +9,7 @@
   flex-direction: column;
   text-align: center;
   transition: transform 150ms;
-  padding: 25px;
+  padding: 15px;
 }
 
 .uploadArea__msg {
@@ -45,8 +45,8 @@
 
 .btn--file {
   font-size: 20px;
-  min-width: 240px;
-  height: 60px;
+  min-width: 200px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,4 +62,10 @@
   background-color: var(--primaryControlHoverColor);
   outline: 1px dotted #000;
   outline: -webkit-focus-ring-color auto 5px;
+}
+
+.input-filed{
+  min-width: 200px;
+  border: 1px solid #0287e8;
+  border-radius: 2px;
 }
