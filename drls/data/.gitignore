@@ -1,6 +1,6 @@
 # generate data
 studata.xls
-random.txt
+random_seed.txt
 num.txt
 lock.txt
 *.lock
