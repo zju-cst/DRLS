@@ -16,6 +16,8 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'segoe ui',
     'helvetica neue', helvetica, ubuntu, roboto, noto, arial, sans-serif;
   font-weight: 200;
+    width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -24,8 +26,10 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  overflow-x: hidden;
+  padding: 0;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 input,
@@ -50,19 +54,13 @@ a:hover {
 }
 
 .main {
-  flex: auto;
-  /*max-width: 600px;*/
   margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-  width: 100%;
-  overflow-x: hidden;
+  width: 98%;
 }
 
-.noscript {
-  text-align: center;
-  border: 3px solid var(--errorColor);
-  border-radius: 6px;
+.main-area{
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .btn {
@@ -244,11 +242,11 @@ a:hover {
 .description {
   font-size: 15px;
   line-height: 23px;
-  max-width: 630px;
+  max-width: 640px;
   text-align: center;
   margin: 0 auto 60px;
   color: var(--textColor);
-  width: 92%;
+  width: 100%;
 }
 
 @media (max-device-width: 768px), (max-width: 768px) {

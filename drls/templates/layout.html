@@ -13,12 +13,10 @@
 </head>
 <body class="{% block body_class %} {% endblock %}" >
 {% include "header.html" %}
-<main class="container">
+<div class="container-fluid main-area">
     {% block content %} {% endblock %}
-</main>
-
 <!-- Small modal -->
-<div id="warn-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="warning">
+<div id="warn-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="warning">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="alert alert-danger" style="margin-bottom: 0">
@@ -27,6 +25,9 @@
     </div>
   </div>
 </div>
+</div>
+
+
 
 {% include "footer.html" %}
 <!-- JavaScript at the bottom for fast page loading -->
