@@ -27,6 +27,8 @@ class Config(object):
 
 
 
+
+
 class ProdConfig(Config):
     """Production configuration."""
 
