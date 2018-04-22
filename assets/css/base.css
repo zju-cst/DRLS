@@ -60,6 +60,7 @@ a:hover {
 
 .main-area{
   width: 100%;
+  max-width: 1200px;
   overflow-x: hidden;
 }
 
