@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-  <div class="main">
+    <div class="page-one main-area">
     <div class="title">宿舍随机抽签系统</div>
     <div class="description">
       <div>给定随机种子，生成可追溯随机数据</div>
@@ -10,21 +10,21 @@
     {% if not (lock and data_exist) %}
     <div class="uploadArea">
        <form id="upload-form" enctype="multipart/form-data" method="post" name="upload-form">
-       <div class="form-group row">
+       <div class="form-group">
         <div class="uploadArea__msg">请输入随机参数</div>
-        <label for="random-seed" class="col-form-label" title="随机种子">随机种子</label>
-        <input id="random-seed" class="ramdomSeed form-control-plaintext" type="text" name="randomSeed"/>
+        <label for="randomSeed" class="sr-only" title="随机种子">随机种子</label>
+        <input id="random-seed" class="ramdomSeed input-filed" placeholder="随机种子" type="text" name="randomSeed"/>
        </div>
 
         <div class="form-group row">
-        <label for="random-num" class="" title="目标人数">目标人数</label>
-        <input id="random-num" class="ramdomNum" type="text" name="randomNum"/>
+        <label for="randomNum" class="sr-only" title="目标人数">目标人数</label>
+        <input id="random-num" class="ramdomNum input-filed" placeholder="目标人数" type="text" name="randomNum"/>
         </div>
 
         {% if lock %}
         <div class="form-group row">
-        <label for="passwd" class="" title="上传密码">上传密码</label>
-        <input id="passwd" class="passwd" type="text" name="passwd"/>
+        <label for="passwd" class="sr-only" title="上传密码">上传密码</label>
+        <input id="passwd" class="passwd input-filed" placeholder="上传密码" type="password" name="passwd"/>
         </div>
         {% endif %}
 
@@ -37,13 +37,12 @@
     {% endif %}
 
     {% if data_exist %}
-    <div class="previous-result row">
+    <div class="previous-result">
     <div class="well center-block">
         <a href="/random/"><button class="btn btn-block btn-primary">查看上次random结果</button></a>
     </div>
     </div>
     {% endif %}
-
-  </div>
+</div>
 {% endblock %}
 
