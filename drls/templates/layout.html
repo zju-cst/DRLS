@@ -2,70 +2,33 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta property="og:title" content="Firefox Send"/>
-    <meta name="twitter:title" content="Firefox Send"/>
-    <meta name="description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever."/>
-    <meta property="og:description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever."/>
-    <meta name="twitter:description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever."/>
-    <meta name="twitter:card" content="summary"/>
-    <meta property="og:image" content="https://send.firefox.com/send-fb.19274ff0.jpg"/>
-    <meta name="twitter:image" content="https://send.firefox.com/send-twitter.7d5e4200.jpg"/>
-    <meta property="og:url" content="https://send.firefox.com"/>
-
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="Zhejiang University Dormitory Random Lottery System"/>
     <title>{% block page_title %}DRLS{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}{% endblock %}">
-    <meta name="author" content="{% block meta_author %}{% endblock %}">
-
-    {#    <link rel="stylesheet" type="text/css" href="/style.13e19eba.css" />#}
     {{ stylesheet_tag('main_css') | safe }}
-
     {% block css %}{% endblock %}
-
-    <!-- generic favicons -->
-    <link rel="icon" href="/favicon-32.4efdbe5a.png" sizes="32x32">
-    <link rel="icon" href="/favicon-96.a2ce7c6e.png" sizes="96x96">
-    <link rel="icon" href="/favicon-128.58447464.png" sizes="128x128">
-    <link rel="icon" href="/favicon-228.069d14fe.png" sizes="228x228">
-
-    <!-- Android -->
-    <link rel="shortcut icon" href="/favicon-196.55cef95d.png" sizes="196x196">
-
-    <!-- iOS -->
-    <link rel="apple-touch-icon" href="/favicon-120.a48a3fc0.png" sizes="120x120">
-    <link rel="apple-touch-icon" href="/favicon-152.10d8b941.png" sizes="152x152">
-    <link rel="apple-touch-icon" href="/favicon-180.373787f8.png" sizes="180x180">
-
-    <!-- Windows 8 IE 10-->
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="msapplication-TileImage" content="/favicon-144.909cb064.png">
-
-    <!-- Windows 8.1 + IE11 and above -->
-    <meta name="msapplication-config" content="/browserconfig.xml"/>
-
-
-
-    <script defer src="/jsconfig.js"></script>
-    <script defer src="/runtime.44a28e7e.js"></script>
-    <script defer src="/vendor.ec5b5b1d.js"></script>
-    <script defer src="/public/locales/zh-CN/send.7b40f48c.js"></script>
-    <script defer src="/cryptofill.1315ac9e.js"></script>
-    <script defer src="/app.b7afd016.js"></script>
 </head>
-<body class="{% block body_class %} {% endblock %}">
-
-
+<body class="{% block body_class %} {% endblock %}" >
 {% include "header.html" %}
-<main class="main">
+<main class="container">
     {% block content %} {% endblock %}
 </main>
-{% include "footer.html" %}
 
+<!-- Small modal -->
+<div id="warn-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="warning">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="alert alert-danger" style="margin-bottom: 0">
+            <p><strong class="warn-code"></strong> : <span class="warn-msg"></span></p>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}
 <!-- JavaScript at the bottom for fast page loading -->
 {{ javascript_tag('main_js') | safe }}
 {% block js %}{% endblock %}
 <!-- end scripts -->
 </body>
-
-

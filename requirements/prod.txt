@@ -35,3 +35,13 @@ Flask-Caching>=1.0.0
 
 # Debug toolbar
 Flask-DebugToolbar==0.10.1
+
+# Markdown
+
+markdown2==2.3.5
+
+#Excel
+xlrd==1.1.0
+
+#filelock
+filelock==3.0.4

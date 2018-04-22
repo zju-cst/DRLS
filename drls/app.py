@@ -5,6 +5,10 @@ from flask import Flask, render_template
 from drls import commands, public, user
 from drls.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, webpack
 from drls.settings import ProdConfig
+from drls.utils import JSONR
+from filelock import Timeout, FileLock
+
+import os
 
 
 def create_app(config_object=ProdConfig):
@@ -19,6 +23,7 @@ def create_app(config_object=ProdConfig):
     register_errorhandlers(app)
     register_shellcontext(app)
     register_commands(app)
+    register_user_variable(app)
     return app
 
 
@@ -71,3 +76,19 @@ def register_commands(app):
     app.cli.add_command(commands.lint)
     app.cli.add_command(commands.clean)
     app.cli.add_command(commands.urls)
+
+def register_user_variable(app):
+    app.config.lock_file_path = os.path.join(app.config['UPLOAD_FOLDER'],app.config['LOCK_FILE_NAME'])
+    app.config.seed_file_path = os.path.join(app.config['UPLOAD_FOLDER'],app.config['RANDOMSEED_FILE_NAME'])
+    app.config.xls_file_path  = os.path.join(app.config['UPLOAD_FOLDER'], app.config['STUDATA_FILE_NAME'])
+    app.config.num_file_path = os.path.join(app.config['UPLOAD_FOLDER'],app.config['RANDOMNUM_FILE_NAME'])
+
+    app.config.lock_file_lock_path = os.path.join(app.config['UPLOAD_FOLDER'],app.config['LOCK_FILE_NAME']+'.lock')
+    app.config.seed_file_lock_path = os.path.join(app.config['UPLOAD_FOLDER'],app.config['RANDOMSEED_FILE_NAME']+'.lock')
+    app.config.xls_file_lock_path  = os.path.join(app.config['UPLOAD_FOLDER'], app.config['STUDATA_FILE_NAME']+'.lock')
+    app.config.num_file_lock_path = os.path.join(app.config['UPLOAD_FOLDER'],app.config['RANDOMNUM_FILE_NAME']+'.lock')
+
+    app.config.num_file_lock = FileLock(app.config.num_file_lock_path)
+    app.config.seed_file_lock = FileLock(app.config.seed_file_lock_path)
+    app.config.xls_file_lock = FileLock(app.config.xls_file_lock_path)
+    app.config.lock_file_lock = FileLock(app.config.lock_file_lock_path)

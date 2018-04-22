@@ -1,0 +1,14 @@
+.unsupportedPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.unsupportedPage__info {
+  font-size: 13px;
+  line-height: 23px;
+  text-align: center;
+  color: var(--lightTextColor);
+  margin: 0 auto 23px;
+}

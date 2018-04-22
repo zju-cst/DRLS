@@ -1,14 +1,16 @@
-
 {% extends "layout.html" %}
 
 {% block page_title %}Server error{% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-    <div class="text-center">
-        <h1>500</h1>
-        <p>Sorry, something went wrong on our system. Don't panic, we are fixing it! Please try again later.</p>
+    <div class="page">
+      <div class="title">500</div>
+      <img src="{{ asset_url_for('img/illustration_expired.svg') }}" id="expired-img">
+      <div class="description">
+          Sorry, something went wrong on our system. Don't panic, we are fixing it! Please try again later.
+      </div>
+      <a class="link link--action" href="{{ url_for('public.home') }}">
+        Home
+      </a>
     </div>
-</div>
 {% endblock %}
-

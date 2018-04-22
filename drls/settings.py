@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Application configuration."""
 import os
+from drls.utils import app_dir
 
 
 class Config(object):
@@ -15,6 +16,17 @@ class Config(object):
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     WEBPACK_MANIFEST_PATH = 'webpack/manifest.json'
+
+    UPLOAD_FOLDER = os.path.join(app_dir(),'data')
+    ALLOWED_EXTENSIONS = ['xls']
+    STUDATA_FILE_NAME= 'studata.xls'
+    RANDOMSEED_FILE_NAME = 'random_seed.txt'
+    RANDOMNUM_FILE_NAME = 'num.txt'
+    LOCK_FILE_NAME = 'lock.txt'
+
+
+
+
 
 
 class ProdConfig(Config):
