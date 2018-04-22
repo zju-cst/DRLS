@@ -42,3 +42,6 @@ markdown2==2.3.5
 
 #Excel
 xlrd==1.1.0
+
+#filelock
+filelock==3.0.4
