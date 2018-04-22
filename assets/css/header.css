@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   padding: 31px;
+  margin: 0;
   width: 100%;
 }
 

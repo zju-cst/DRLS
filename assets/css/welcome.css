@@ -1,6 +1,6 @@
 .uploadArea {
   border: 3px dashed rgba(148, 149, 151, 0.5);
-  margin: 0 auto 10px;
+  margin: 0 auto 5px;
   /*height: 255px;*/
   border-radius: 4px;
   display: flex;
@@ -9,7 +9,7 @@
   flex-direction: column;
   text-align: center;
   transition: transform 150ms;
-  padding: 15px;
+  padding: 25px;
 }
 
 .uploadArea__msg {

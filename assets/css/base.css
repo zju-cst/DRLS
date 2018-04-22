@@ -13,13 +13,9 @@
 }
 
 html {
-  background: url('~!file-loader!../img/send_bg.svg');
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'segoe ui',
     'helvetica neue', helvetica, ubuntu, roboto, noto, arial, sans-serif;
   font-weight: 200;
-  background-size: 110%;
-  background-repeat: no-repeat;
-  background-position: center top;
 }
 
 body {
@@ -28,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -49,11 +46,12 @@ a:hover {
 
 .main {
   flex: auto;
-  max-width: 650px;
+  /*max-width: 600px;*/
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
-  width: 96%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .noscript {
@@ -250,7 +248,7 @@ a:hover {
 
 @media (max-device-width: 768px), (max-width: 768px) {
   .description {
-    margin: 0 auto 25px;
+    margin: 0 auto 20px;
   }
 }
 
