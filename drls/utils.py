@@ -21,7 +21,7 @@ def read_excel(path):
     table = data.sheets()[0]
     nrow = table.nrows
     for i in range(nrow):
-        key = table.cell_value(i,0)
+        key = int(table.cell_value(i,0))
         value = table.cell_value(i,1)
         if dict_filter(key):
             student[key] = value
