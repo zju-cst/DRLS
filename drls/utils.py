@@ -25,7 +25,6 @@ def read_excel(path):
         value = table.cell_value(i,1)
         if dict_filter(key):
             student[key] = value
-    print(student)
     return student
 
 def cal_range(students):
