@@ -39,7 +39,7 @@ if (randomBox && randomBox.length > 0) {
         if (c2 % 10 === 6) {
           const ele = luckyStudents.pop();
           c1 += 1;
-          $('#lucky-stu-table').append(`<tr><th scope="row"> ${c1} </th><td>${ele[1].trim()}</td></tr>`);
+          $('#lucky-stu-table').append(`<tr><th scope="row"> ${c1} </th><td>${(ele[1] +'').trim()}</td></tr>`);
           if (luckyStudents.length === 0) {
             clearInterval(effectIntervalId);
             randomSpan.val('');

@@ -176,7 +176,9 @@ def rand():
        # rand
        try:
            dicts = read_excel(app.config.xls_file_path)
-           res = RandomGenerator(random_seed, cal_range(dicts), random_num, dicts)
+           if random_num > cal_range(dicts):
+               return JSONR(ERRCODE.FORMAT_ERROR,'random target number larger than cal range')
+           res = RandomGenerator(random_seed, int(cal_range(dicts)), random_num, dicts)
            studs = res.GenerateResult()
            res = []
            for key in dicts:
